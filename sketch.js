@@ -52,7 +52,7 @@ function setup() {
   createCanvas(window_size.width, window_size.height);
   balls.push(new Ball(width / 2, height / 2, createVector(5, 5), 20));
   for (let i = 0; i < 5; i++) {
-    tiles.push(new Tile(i * 50, 50, 50, 1));
+    tiles.push(new Tile(i * 50, 350, 50, 1));
     tiles.push(new Tile(500 - i * 50, 250, 50, 1));
   }
   frameRate(60);
@@ -82,4 +82,7 @@ function initMenu() {
   text("Score " + score, 350, 40);
   text("LVL " + lvl, 10, 40);
   line(0, 50, width, 50);
+}
+function mouseClicked() {
+  balls.push(new Ball(mouseX, mouseY, createVector(0, -4), 20));
 }

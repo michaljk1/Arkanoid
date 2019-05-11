@@ -11,9 +11,11 @@ class Tile {
     rect(this.x, this.y, this.w, 20);
   }
   checkCollisions(index) {
+    //FIXME!!!
     for (let i = 0; i < balls.length; i++) {
       if (
-        balls[i].pos.y < this.y + 40 &&
+        balls[i].pos.y < this.y &&
+        balls[i].pos.y > this.y - balls[i].r &&
         balls[i].pos.x > this.x &&
         balls[i].pos.x < this.x + this.w
       ) {
