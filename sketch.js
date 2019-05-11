@@ -22,9 +22,15 @@ function setup() {
   );
   createCanvas(window_size.width, window_size.height);
   balls.push(new Ball(width / 2, height / 2, createVector(5, 5), 20));
+  tiles.push(new Tile(300, 300, 50, 1, "speedUp"));
+  tiles.push(new Tile(400, 400, 50, 1, "speedDown"));
+  tiles.push(new Tile(450, 200, 50, 1, "sizeUp"));
+  tiles.push(new Tile(100, 100, 50, 1, "sizeDown"));
+  tiles.push(new Tile(300, 200, 50, 1, "freakOut"));
+
   for (let i = 0; i < 5; i++) {
-    tiles.push(new Tile(i * 50, 350, 50, 1));
-    tiles.push(new Tile(500 - i * 50, 250, 50, 1));
+    tiles.push(new Tile(i * 50, 350, 50, 1, "normal"));
+    tiles.push(new Tile(500 - i * 50, 250, 50, 1, "divide"));
   }
   frameRate(60);
 }
