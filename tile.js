@@ -80,7 +80,7 @@ class Tile {
           balls[i].pos.x < this.x + this.w &&
           balls[i].pos.y - balls[i].r / 2 < this.y + 20)
       ) {
-        balls[i].vel = 0;
+        balls[i].vel.y = -balls[i].vel.y;
         hit_sound.play();
         if (--this.hp == 0) {
           tiles.splice(index, 1);
