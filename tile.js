@@ -57,9 +57,8 @@ class Tile {
       case "immortal":
         this.behaviour = () => {
           console.log("Im immortal!");
-          this.hp = 2;
         };
-        return "rgb(226, 6, 201)";
+        return "rgb(186, 186, 186)";
     }
   }
   show() {
