@@ -38,7 +38,7 @@ class Pad {
   checkCollisions() {
     for (let i = 0; i < balls.length; i++) {
       if (
-        balls[i].pos.y > this.y &&
+        balls[i].pos.y + balls[i].r / 2 > this.y &&
         balls[i].pos.x > this.x &&
         balls[i].pos.x < this.x + this.w
       ) {

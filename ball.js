@@ -19,7 +19,7 @@ class Ball {
     ) {
       this.vel.x = -this.vel.x;
     } else if (this.pos.y < 50 + this.r / 2) this.vel.y = -this.vel.y;
-    else if (this.pos.y > window_size.height) {
+    else if (this.pos.y > pad.y + pad.h) {
       console.log("deleting " + index + "ball");
       balls.splice(index, 1);
       if (balls.length < 1) {
