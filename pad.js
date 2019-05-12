@@ -13,7 +13,14 @@ class Pad {
     rect(this.x, this.y, this.w, this.h);
   }
   move() {
-    if (abs(accelerationX) > 0) this.x += accelerationX * 2;
+    //mobile device
+    if (abs(rotationY) > 0) {
+      let value = map(rotationY, -90, 90, -5, 5);
+      console.log(value);
+      this.x += value;
+    }
+
+    //keyboard controlling
     if (keyIsDown(LEFT_ARROW)) {
       this.x -= this.vel;
       this.dir = -1;
