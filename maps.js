@@ -1,4 +1,9 @@
 function nextLevel() {
+  pad.vel = 5;
+  let i = balls.length;
+  balls.splice(0, i);
+  balls.push(new Ball(width / 2, height / 2, createVector(5, -5), 20));
+  pad.x = window_size.width / 2 - 50;
   let blocks = [];
   switch (lvl) {
     case 1:

@@ -13,7 +13,10 @@ class Ball {
     this.pos.add(this.vel);
   }
   checkEdges(index) {
-    if (this.pos.x > window_size.width - this.r || this.pos.x < this.r) {
+    if (
+      this.pos.x + this.r / 2 > window_size.width - this.vel.x ||
+      this.pos.x < this.r / 2 - this.vel.x
+    ) {
       this.vel.x = -this.vel.x;
     } else if (this.pos.y < 50 + this.r / 2) this.vel.y = -this.vel.y;
     else if (this.pos.y > window_size.height) {
