@@ -15,7 +15,7 @@ class Pad {
   move() {
     //mobile device
     if (abs(rotationY) > 0) {
-      let value = map(rotationY, -90, 90, -5, 5);
+      let value = map(rotationY, radians(-90), radians(90), -5, 5);
       console.log(value);
       this.x += value;
     }
