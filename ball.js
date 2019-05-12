@@ -22,6 +22,10 @@ class Ball {
     else if (this.pos.y > window_size.height) {
       console.log("deleting " + index + "ball");
       balls.splice(index, 1);
+      if (balls.length < 1) {
+        showMessage("lose");
+        noLoop();
+      }
     }
   }
 }
