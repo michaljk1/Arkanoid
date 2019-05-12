@@ -6,6 +6,7 @@ class Pad {
     this.h = h;
     this.vel = 5;
     this.color = "rgb(255, 255, 0)";
+    this.dir = 1; //1 = right;  -1 = left
   }
   show() {
     fill(this.color);
@@ -14,9 +15,11 @@ class Pad {
   move() {
     if (keyIsDown(LEFT_ARROW)) {
       pad.x -= pad.vel;
-      console.log("left");
-    }
-    if (keyIsDown(RIGHT_ARROW)) pad.x += pad.vel;
+      pad.dir = -1;
+    } else if (keyIsDown(RIGHT_ARROW)) {
+      pad.x += pad.vel;
+      pad.dir = 1;
+    } else this.dir = 0;
   }
   checkEdges() {
     if (this.x < 0) this.x = 0;
@@ -32,6 +35,7 @@ class Pad {
       ) {
         console.log("BUM!");
         balls[i].vel.y = -balls[i].vel.y;
+        balls[i].vel.x += this.dir * this.vel;
       }
     }
   }
