@@ -16,8 +16,9 @@ class Pad {
     //mobile device
     if (abs(rotationY) > 0) {
       let value = map(rotationY, radians(-90), radians(90), -5, 5);
-      console.log(value);
       this.x += value;
+      if (value > 0) this.dir = 1;
+      else this.dir = -1;
     }
 
     //keyboard controlling
