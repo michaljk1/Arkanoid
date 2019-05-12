@@ -1,7 +1,7 @@
 var balls = [];
 var tiles = [];
 var score = 0;
-var lvl = 1;
+var lvl = 3;
 var hit_sound;
 var win_sound;
 var lose_sound;

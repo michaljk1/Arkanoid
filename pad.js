@@ -13,12 +13,13 @@ class Pad {
     rect(this.x, this.y, this.w, this.h);
   }
   move() {
+    if (abs(accelerationX) > 0) this.x += accelerationX * 2;
     if (keyIsDown(LEFT_ARROW)) {
-      pad.x -= pad.vel;
-      pad.dir = -1;
+      this.x -= this.vel;
+      this.dir = -1;
     } else if (keyIsDown(RIGHT_ARROW)) {
-      pad.x += pad.vel;
-      pad.dir = 1;
+      this.x += this.vel;
+      this.dir = 1;
     } else this.dir = 0;
   }
   checkEdges() {
@@ -35,7 +36,8 @@ class Pad {
       ) {
         console.log("BUM!");
         balls[i].vel.y = -balls[i].vel.y;
-        balls[i].vel.x += this.dir * this.vel;
+        if (balls[i].vel.x == 0) balls[i].vel.x += this.dir * this.vel;
+        else balls[i].vel.x = this.dir * balls[i].vel.x;
       }
     }
   }

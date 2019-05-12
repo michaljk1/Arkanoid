@@ -26,7 +26,6 @@ class Tile {
       case "speedUp":
         this.behaviour = () => {
           console.log("Getting faster");
-
           pad.vel += 10;
         };
         return "rgb(0,0,255)";
@@ -82,12 +81,12 @@ class Tile {
       ) {
         balls[i].vel.y = -balls[i].vel.y;
         hit_sound.play();
-        if (--this.hp == 0) {
+        if (--this.hp == 0 && this.type != "immortal") {
           tiles.splice(index, 1);
           score++;
           this.behaviour();
           if (tiles.length == 0) {
-            // showMessage("win");
+            showMessage("win");
             lvl++;
             tiles = nextLevel();
           }
