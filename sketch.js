@@ -3,6 +3,7 @@ var tiles = [];
 var score = 0;
 var lvl = 1;
 var hit_sound;
+var win_sound;
 var pad;
 const window_size = {
   width: 500,
@@ -11,6 +12,7 @@ const window_size = {
 
 function preload() {
   hit_sound = new Audio("hit_sound.wav");
+  win_sound = new Audio("win_sound.wav");
 }
 function setup() {
   pad = new Pad(
@@ -22,16 +24,7 @@ function setup() {
   );
   createCanvas(window_size.width, window_size.height);
   balls.push(new Ball(width / 2, height / 2, createVector(5, 5), 20));
-  tiles.push(new Tile(300, 300, 50, 1, "speedUp"));
-  tiles.push(new Tile(400, 400, 50, 1, "speedDown"));
-  tiles.push(new Tile(450, 200, 50, 1, "sizeUp"));
-  tiles.push(new Tile(100, 100, 50, 1, "sizeDown"));
-  tiles.push(new Tile(300, 200, 50, 1, "freakOut"));
-
-  for (let i = 0; i < 5; i++) {
-    tiles.push(new Tile(i * 50, 350, 50, 1, "normal"));
-    tiles.push(new Tile(500 - i * 50, 250, 50, 1, "divide"));
-  }
+  tiles = nextLevel();
   frameRate(60);
 }
 
@@ -56,10 +49,24 @@ function initMenu() {
   strokeWeight(4);
   fill(255, 255, 255);
   textSize(40);
-  text("Score " + score, 350, 40);
+  text("Score " + score, 330, 40);
   text("LVL " + lvl, 10, 40);
   line(0, 50, width, 50);
 }
 function mouseClicked() {
   balls.push(new Ball(mouseX, mouseY, createVector(0, -4), 20));
+}
+function showMessage(message) {
+  switch (message) {
+    case "win":
+      textSize(50);
+      text("You WIN", width / 2 - 100, height / 2);
+      win_sound.play();
+      break;
+    case "win":
+      textSize(50);
+      text("You WIN", width / 2 - 100, height / 2);
+      win_sound.play();
+      break;
+  }
 }

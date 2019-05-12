@@ -54,6 +54,12 @@ class Tile {
           pad.vel = -pad.vel;
         };
         return "rgb(226, 6, 201)";
+      case "immortal":
+        this.behaviour = () => {
+          console.log("Im immortal!");
+          this.hp = 2;
+        };
+        return "rgb(226, 6, 201)";
     }
   }
   show() {
@@ -61,10 +67,11 @@ class Tile {
     fill(this.color);
     rect(this.x, this.y, this.w, 20);
   }
-
+  checkTop() {}
   checkCollisions(index) {
     //FIXME!!!
     for (let i = 0; i < balls.length; i++) {
+      //sprawdzenie odbicia od gory
       if (
         balls[i].pos.y < this.y &&
         balls[i].pos.y > this.y - balls[i].r &&
@@ -77,6 +84,11 @@ class Tile {
           tiles.splice(index, 1);
           score++;
           this.behaviour();
+          if (tiles.length == 0) {
+            // showMessage("win");
+            lvl++;
+            tiles = nextLevel();
+          }
         }
         // balls[i].vel = 0;
       }
