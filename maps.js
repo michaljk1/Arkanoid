@@ -18,7 +18,7 @@ function nextLevel() {
       }
       blocks.push(new Tile(width / 2 - 100, 120, 50, 1, "normal"));
       blocks.push(new Tile(width / 2 - 50, 120, 50, 1, "divide"));
-      //  blocks.push(new Tile(width / 2 - 150, 120, 50, 1, "immortal"));
+      blocks.push(new Tile(width / 2 - 150, 120, 50, 1, "freakOut"));
       blocks.push(new Tile(width / 2, 120, 50, 1, "speedDown"));
       blocks.push(new Tile(width / 2 + 50, 120, 50, 1, "normal"));
       break;
